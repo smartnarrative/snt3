@@ -1,0 +1,42 @@
+{
+  "story": {
+    "name": "formation",
+    "actions" : [
+      {
+        "type": "Innovation",
+        "channel": "knowledge",
+        "actor": {
+          "type": "enterprise",
+          "name": "Smart Narrative Network"
+        },
+        "events": [
+          {
+            "name": "event1",
+            "type": "source_code",
+            "url": "https://github.com/example_enterprise/example.git"
+          },
+          {
+            "name": "event2",
+            "type": "source_code",
+            "url": "https://github.com/example_enterprise/example.git"
+          },
+          {
+            "name": "event3",
+            "type": "source_code",
+            "url": "https://github.com/example_enterprise/example.git"
+          },
+          {
+            "name": "event4",
+            "type": "source_code",
+            "url": "https://github.com/example_enterprise/example.git"
+          },
+          {
+            "name": "event5",
+            "type": "source_code",
+            "url": "https://github.com/example_enterprise/example.git"
+          }
+        ]
+      }
+    ]
+  }
+}
