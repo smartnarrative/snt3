@@ -1,5 +1,5 @@
 service:
-  name: snft-getMetaData
+  name: snft
 
 custom:
   webpack:
@@ -46,10 +46,10 @@ provider:
       Resource: "*"
 
 functions:
-  getMetaData:
-    handler: src/handler.snt1
+  getTokenURI:
+    handler: src/handler.snft
     events:
      - http:
-        path: snft
-        method: get
+        path: tokenURI
+        method: post
         cors: true
