@@ -1,5 +1,6 @@
 import { APIGatewayProxyHandler } from 'aws-lambda';
 import 'source-map-support/register';
+import axios from 'axios';
 import getTokenCredentials from "./secret";
 import Web3 from "web3";
 const snftABI = require('./abi.json');
@@ -22,7 +23,13 @@ export const snft: APIGatewayProxyHandler = async (lambdaEvent, context) => {
       web3.eth.defaultAccount = tObj.OWNER_ADDRESS;
       const wallet = web3.eth.defaultAccount;
       const theContract = new web3.eth.Contract(snftABI, tObj.NFT_CONTRACT_ADDRESS);
-      message = await theContract.methods.tokenURI(postParams.tokenId).call({from: wallet});
+      const ipfsHash = await theContract.methods.tokenURI(postParams.tokenId).call({from: wallet});
+      const ipfsResponse = await axios({
+        method: 'get',
+        url: `${process.env.IPFS_URL}${ipfsHash}`,
+      });
+      const { data } = ipfsResponse;
+      message = JSON.stringify(data);
     }
   } catch (error) {
     // eslint-disable-next-line
