@@ -26,7 +26,7 @@ export const snft: APIGatewayProxyHandler = async (lambdaEvent, context) => {
       const ipfsHash = await theContract.methods.tokenURI(postParams.tokenId).call({from: wallet});
       const ipfsResponse = await axios({
         method: 'get',
-        url: `${process.env.IPFS_URL}${ipfsHash}`,
+        url: ipfsHash,
       });
       const { data } = ipfsResponse;
       message = JSON.stringify(data);
