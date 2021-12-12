@@ -1,5 +1,5 @@
 service:
-  name: snn-lambda-nft-1
+  name: SNFT-1
 
 custom:
   webpack:
@@ -25,7 +25,7 @@ provider:
   name: aws
   runtime: nodejs12.x
   frameworkVersion: '2.17.0'
-  stage: ${opt:stage, 'dev'}
+  stage: ${opt:stage, 'SNN'}
   region: ${opt:region, 'us-east-1'}
   apiGateway:
     minimumCompressionSize: 1024 # Enable gzip compression for responses > 1 KB
@@ -35,7 +35,7 @@ provider:
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     INFURA_URL: 'https://rinkeby.infura.io/v3/'
     IPFS_URL: 'https://gateway.pinata.cloud/ipfs/'
-    SECRET_PARAM: 'SNN-001'
+    SECRET_PARAM: 'SFNT-12122021'
   tracing:
     lambda: true
   iamRoleStatements:
