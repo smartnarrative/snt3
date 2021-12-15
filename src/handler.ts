@@ -50,6 +50,10 @@ export const snft: APIGatewayProxyHandler = async (lambdaEvent, context) => {
 
   return {
     statusCode,
+    headers: {
+      'Access-Control-Allow-Origin': '*',
+      'Access-Control-Allow-Credentials': true,
+    },
     body: message,
   };
 };
