@@ -34,7 +34,6 @@ provider:
     NODE_ENV: ${self:provider.stage}
     AWS_NODEJS_CONNECTION_REUSE_ENABLED: 1
     INFURA_URL: 'https://rinkeby.infura.io/v3/'
-    IPFS_URL: 'https://gateway.pinata.cloud/ipfs/'
     SECRET_PARAM: 'SFNT-12122021'
   tracing:
     lambda: true
