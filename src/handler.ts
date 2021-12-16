@@ -25,12 +25,7 @@ export const snft: APIGatewayProxyHandler = async (lambdaEvent, context) => {
       web3.eth.defaultAccount = tObj.OWNER_ADDRESS;
       const wallet = web3.eth.defaultAccount;
       const theContract = new web3.eth.Contract(snftABI, tObj.NFT_CONTRACT_ADDRESS);
-      console.log('CONTRACT');
-      console.dir(theContract);
       const ipfsHash = await theContract.methods.getTokenURI(postParams.tokenId).call({from: wallet});
-      console.log('IPFSHASH');
-      console.dir(ipfsHash);
-
       const ipfsResponse = await axios({
         method: 'get',
         url: ipfsHash,
